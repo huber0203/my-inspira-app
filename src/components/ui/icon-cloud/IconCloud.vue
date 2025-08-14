@@ -196,6 +196,8 @@ onMounted(() => {
   if (!ctx) return;
 
   function animate() {
+      if (!canvas || !ctx) return; // 加入這行檢查
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     const centerX = canvas.width / 2;
@@ -224,6 +226,10 @@ onMounted(() => {
     }
 
     imagePositions.value.forEach((icon, index) => {
+      
+            if (!ctx) return;
+
+      
       const cosX = Math.cos(rotation.x);
       const sinX = Math.sin(rotation.x);
       const cosY = Math.cos(rotation.y);
