@@ -88,7 +88,7 @@ const slugs = [
  "postman",
  "c++",
  "react",
- "createreactapp",
+ "bootstrap",
  "android",
  "html5",
  "css",
