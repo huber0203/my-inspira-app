@@ -12,6 +12,7 @@ export interface SphereIcon {
 export interface IconCloudProps {
   class?: HTMLAttributes["class"];
   images?: string[];
+  slugs?: string[]; 
 }
 
 export { default as IconCloud } from "./IconCloud.vue";

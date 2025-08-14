@@ -35,7 +35,9 @@
 
        <!-- IconCloud -->
        <div class="grid place-content-center -mt-20">
-         <IconCloud :images="imageUrls" />
+         <IconCloud :images="imageUrls" 
+           :slugs="slugs"
+         />
        </div>
 
        <!-- 底部文字 - 靠近 IconCloud -->
@@ -83,35 +85,40 @@ import IconCloud from './components/ui/icon-cloud/IconCloud.vue';
 const slugs = [
  "typescript",
  "javascript",
- "dart",
- "java",
+ "postman",
+ "c++",
  "react",
- "flutter",
+ "createreactapp",
  "android",
  "html5",
- "css3",
+ "css",
  "nodedotjs",
- "express",
+ "ollama",
  "nextdotjs",
  "prisma",
- "amazonaws",
+ "Anaconda",
  "postgresql",
  "firebase",
  "nginx",
  "vercel",
  "testinglibrary",
- "jest",
+ "p5dotjs",
  "cypress",
  "docker",
  "git",
  "jira",
  "github",
  "gitlab",
- "visualstudiocode",
+ "vuedotjs",
  "androidstudio",
- "sonarqube",
+ "n8n",
  "figma",
+ "openai",
+ "codepen",
+ "python",
+ "mysql",
 ];
 
 const imageUrls = slugs.map((slug) => `https://cdn.simpleicons.org/${slug}/${slug}`);
+
 </script>
