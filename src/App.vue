@@ -20,7 +20,7 @@
        >
          <div class="sparkles-wrapper">
            <SparklesText
-             text="2025 全薪升級"
+             :text="`${currentYear} 全薪升級`"
              :colors="{ first: '#d2ac2f', second: '#f4d03f' }"
              :sparkles-count="10"
              class="text-6xl"
@@ -77,14 +77,37 @@
 </style>
 
 <script setup lang="ts">
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { Motion } from "motion-v";
 import BlackHoleBackground from './components/ui/bg-black-hole/BlackHoleBackground.vue';
 import SparklesText from './components/ui/sparkles-text/SparklesText.vue';
 import IconCloud from './components/ui/icon-cloud/IconCloud.vue';
 
+// 方法一：計算屬性（推薦）
+const currentYear = computed(() => {
+  return new Date().getFullYear();
+});
+
+// 方法二：響應式變數 + 定時更新（如果需要實時更新）
+const liveYear = ref(new Date().getFullYear());
+let yearUpdateTimer: NodeJS.Timeout | null = null;
+
+onMounted(() => {
+  // 每年檢查一次年份變化（可選）
+  yearUpdateTimer = setInterval(() => {
+    liveYear.value = new Date().getFullYear();
+  }, 1000 * 60 * 60 * 24); // 每24小時檢查一次
+});
+
+onUnmounted(() => {
+  if (yearUpdateTimer) {
+    clearInterval(yearUpdateTimer);
+  }
+});
+
 const slugs = [
  "typescript",
- "javascript",
+ "javascript", 
  "postman",
  "c++",
  "react",
@@ -120,5 +143,4 @@ const slugs = [
 ];
 
 const imageUrls = slugs.map((slug) => `https://cdn.simpleicons.org/${slug}/${slug}`);
-
 </script>
