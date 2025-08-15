@@ -90,7 +90,7 @@ const currentYear = computed(() => {
 
 // 方法二：響應式變數 + 定時更新（如果需要實時更新）
 const liveYear = ref(new Date().getFullYear());
-let yearUpdateTimer: NodeJS.Timeout | null = null;
+let yearUpdateTimer: number | null = null;
 
 onMounted(() => {
   // 每年檢查一次年份變化（可選）
@@ -106,33 +106,43 @@ onUnmounted(() => {
 });
 
 const slugs = [
-"typescript",
-"javascript",
-"postman",
-"react",
-"bootstrap",
-"android",
-"html5",
-"css",
-"Anaconda",
-"postgresql", 
-"firebase",
-"nginx",
-"docker",
-"git",
-"github",
-"n8n",
-"figma",
-"openai",
-"python",
-"mysql",
-"jquery",
-"vuedotjs",
-"bulma",
-"npm",
-"reactrouter",
-"antdesign",
-"webpack",
+ "typescript",
+ "javascript",
+ "postman",
+ "react",
+ "bootstrap",
+ "android",
+ "html5",
+ "css",
+ "Anaconda",
+ "postgresql",
+ "firebase",
+ "nginx",
+ "docker",
+ "git",
+ "github",
+ "n8n",
+ "figma",
+ "openai",
+ "python",
+ "mysql",
+ "jquery",
+ "vuedotjs",
+ "bulma",
+ "npm",
+ "reactrouter",
+ "antdesign",
+ "webpack",
+"sqlite",
+"googleanalytics",
+"webflow",
+"numpy",
+"pandas",
+"pytorch",
+"kaggle",
+"keras",
+"googlecolab",
+"instacart",
 ];
 
 const imageUrls = slugs.map((slug) => `https://cdn.simpleicons.org/${slug}/${slug}`);
